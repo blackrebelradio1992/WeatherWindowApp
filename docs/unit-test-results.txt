@@ -1,0 +1,16 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> weatherwindow@2.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /workspace/scratch/fff3eeaf7427/assignment/weatherwindow
+
+ ✓ tests/product.test.ts (14 tests) 19ms
+ ✓ tests/core.test.ts (20 tests) 13ms
+
+ Test Files  2 passed (2)
+      Tests  34 passed (34)
+   Start at  05:43:27
+   Duration  396ms (transform 98ms, setup 0ms, collect 127ms, tests 31ms, environment 0ms, prepare 119ms)
+

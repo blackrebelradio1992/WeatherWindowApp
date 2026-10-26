@@ -1,0 +1,418 @@
+{
+  "name": "WeatherWindow Development Roadmap",
+  "lists": [
+    "Documentation and research",
+    "Technology stack",
+    "Week 1 \u2014 Foundation",
+    "Week 2 \u2014 Core experience",
+    "Week 3 \u2014 Quality and usability",
+    "Week 4 \u2014 Release and submission",
+    "In progress",
+    "Review and testing",
+    "Done"
+  ],
+  "cards": [
+    {
+      "list": "Documentation and research",
+      "id": "DOC-01",
+      "title": "[DOC-01] Project scope, links, and definition of done",
+      "description": "Keep the main app URL, /demo.html URL, GitHub URL, Trello Workspace URL, and roadmap Board URL here. One city, 48 hourly slots, three matching rules. Final release requires local review, testing, and deployment verification.",
+      "checklist": [
+        "Add real repository and app links",
+        "Add Workspace and Board links",
+        "Link docs/PROOF_OF_CONCEPT.md and README.md",
+        "Record the current release and open limitations"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Documentation and research",
+      "id": "DOC-02",
+      "title": "[DOC-02] Attach Assignment 4 pitch and approved scope",
+      "description": "Attach WeatherWindow pitch slides and any instructor feedback. Record the approved platform, APIs, exclusions, and changes. Do not substitute the HomeKeep pitch.",
+      "checklist": [
+        "Attach WeatherWindow pitch PowerPoint",
+        "Attach approval or feedback if available",
+        "Link prioritized final feature list"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Documentation and research",
+      "id": "DOC-03",
+      "title": "[DOC-03] Attach Assignment 5 research artifacts",
+      "description": "Attach both feature lists, technical research report, original demo evidence, and recording link if created. The app preserves the original seven experiments at /demo.html.",
+      "checklist": [
+        "Attach PP4 feature list PDF",
+        "Attach R&D feature list PDF",
+        "Attach technical research PDF and original demo source/reference",
+        "Link Assignment 5 recording if required and available"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Documentation and research",
+      "id": "DOC-04",
+      "title": "[DOC-04] Attach Assignment 6 prototype and wireframes",
+      "description": "Attach Gary_Frank_Week3_ProjectPrototype.pdf, prototype share link, and supplied desktop/mobile wireframes. Static exports do not verify prototype interaction links.",
+      "checklist": [
+        "Attach prototype report PDF",
+        "Link the actual prototyping tool file",
+        "Attach desktop and mobile wireframe PDFs",
+        "Link docs/WIREFRAME_MAP.md"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Documentation and research",
+      "id": "DOC-05",
+      "title": "[DOC-05] Competitive UX research",
+      "description": "Research sources: AccuWeather https://apps.apple.com/us/app/accuweather-weather-forecast/id300048137 and Weather Underground https://www.wunderground.com/faqs. Borrow city selection and hourly presentation. Test the benefit of visible threshold controls and explanations without claiming competitors lack features.",
+      "checklist": [
+        "Link both researched products",
+        "Attach pitch screenshots or research report",
+        "Record borrowed conventions and proposed improvements",
+        "Separate observations from user-test findings"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Documentation and research",
+      "id": "DOC-06",
+      "title": "[DOC-06] Research and troubleshooting log",
+      "description": "Use docs/RESEARCH_LOG.md. Record Node path correction, API data model decisions, timezone handling, browser tests, and new resources used. Include tutorials, forum threads, and Discord links only if actually used.",
+      "checklist": [
+        "Link all sources actually used",
+        "Record each problem, fix, and evidence",
+        "Link relevant code modules",
+        "Add instructor feedback and changes"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Technology stack",
+      "id": "TECH-01",
+      "title": "[TECH-01] Vue 3, TypeScript, HTML, CSS, and Vite",
+      "description": "Vue Composition API drives UI; TypeScript models cities/hours/preferences; HTML labels and CSS implement wireframes; Vite builds independent index.html and demo.html entries. Tooling: Node.js 24, npm, VS Code, Git, GitHub.",
+      "checklist": [
+        "Verify node --version shows 24.x",
+        "Run npm ci and npm run build",
+        "Explain main.ts versus demo.ts",
+        "Keep package-lock.json committed"
+      ],
+      "status": "Implemented in supplied code; verify on your Mac"
+    },
+    {
+      "list": "Technology stack",
+      "id": "TECH-02",
+      "title": "[TECH-02] Open-Meteo APIs, Fetch, and AbortController",
+      "description": "Geocoding maps queries to cities. Forecast API retrieves core and supporting measurements. Fetch checks HTTP status. AbortController cancels obsolete work; sequence guards ignore stale responses. No private weather API key or backend is required.",
+      "checklist": [
+        "Demonstrate a live city lookup",
+        "Demonstrate a live forecast response",
+        "Explain normalization and missing values",
+        "Check cancellation and error feedback"
+      ],
+      "status": "Implemented in supplied code; verify live"
+    },
+    {
+      "list": "Technology stack",
+      "id": "TECH-03",
+      "title": "[TECH-03] localStorage and versioned persistence",
+      "description": "Product key weatherwindow-preferences-v1 stores city, five recent choices, canonical Fahrenheit thresholds, and display unit. Lab uses a separate key. No server database or cross-device sync.",
+      "checklist": [
+        "Reload and restore last city and limits",
+        "Verify recent-city deduplication",
+        "Check corrupt data feedback",
+        "Explain origin-specific storage"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Technology stack",
+      "id": "TECH-04",
+      "title": "[TECH-04] Vitest, Playwright, GitHub Actions, and Pages",
+      "description": "Vitest checks deterministic rules. Playwright tests actual UI with explicit fixtures. GitHub Actions runs unit checks and builds both pages. Pages hosting is optional until the user publishes it.",
+      "checklist": [
+        "Run npm test",
+        "Install Chromium and run npm run test:e2e",
+        "Inspect workflow output after push",
+        "Verify both published URLs"
+      ],
+      "status": "Tests and workflow supplied; hosting not performed"
+    },
+    {
+      "list": "Week 1 \u2014 Foundation",
+      "id": "W1-01",
+      "title": "[W1-01] Upgrade existing lab and preserve research page",
+      "description": "Apply upgrade-weatherwindow.mjs in the existing lab root. Review the backup location. Main product loads at /; independent Demo Lab loads only by /demo.html URL, without main navigation link. URL knowledge is not authentication.",
+      "checklist": [
+        "Apply update once",
+        "Verify existing backup",
+        "Open main page and /demo.html",
+        "Confirm no main-app Demo Lab link"
+      ],
+      "status": "Implemented in supplied code; verify update locally"
+    },
+    {
+      "list": "Week 1 \u2014 Foundation",
+      "id": "W1-02",
+      "title": "[W1-02] City type-ahead and location disambiguation",
+      "description": "Debounce search, list city/region/country, allow form submission and selecting the correct city. Preserve a Back action when changing an existing city.",
+      "checklist": [
+        "Type Denver and distinguish results",
+        "Check two-character minimum",
+        "Use keyboard to select a city",
+        "Change city and return to forecast"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 1 \u2014 Foundation",
+      "id": "W1-03",
+      "title": "[W1-03] City search loading, empty results, and failure",
+      "description": "Use inline search feedback. Empty results retain the query. Failure offers Retry. Obsolete requests cannot overwrite a newer search.",
+      "checklist": [
+        "Observe searching state",
+        "Try a query with no results",
+        "Check failed request recovery",
+        "Check newer search wins"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 1 \u2014 Foundation",
+      "id": "W1-04",
+      "title": "[W1-04] Forecast request and 48-hour data model",
+      "description": "Request 48 hourly slots from the current hour; specify Fahrenheit, mph, inches, Unix timestamps, and auto timezone. Preserve missing data as null.",
+      "checklist": [
+        "Inspect API parameters",
+        "Check 48 records when available",
+        "Check units and timezone",
+        "Check missing core data excluded"
+      ],
+      "status": "Implemented in supplied code; verify live"
+    },
+    {
+      "list": "Week 1 \u2014 Foundation",
+      "id": "W1-05",
+      "title": "[W1-05] Create GitHub repository and invite instructor",
+      "description": "Create an empty weatherwindow repository, commit source, push main, then invite the exact instructor account CreatorRob. User must verify the account before sending invitation.",
+      "checklist": [
+        "Create repository",
+        "Commit source without node_modules or secrets",
+        "Push main and verify files",
+        "Send CreatorRob collaborator invitation"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 2 \u2014 Core experience",
+      "id": "W2-01",
+      "title": "[W2-01] Temperature, wind, and rain controls",
+      "description": "Use accessible numeric inputs and sliders. Minimum <= maximum; wind >= 0; rain 0\u2013100. Comparisons are inclusive and all three rules must pass. Invalid edits show feedback and do not overwrite saved valid preferences.",
+      "checklist": [
+        "Adjust each input and slider",
+        "Check results recalculate",
+        "Check inclusive boundaries",
+        "Check invalid inputs preserve saved values"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 2 \u2014 Core experience",
+      "id": "W2-02",
+      "title": "[W2-02] Fahrenheit and Celsius display conversion",
+      "description": "Store and compare canonical Fahrenheit values. Convert display and entered temperature values, avoiding repeated conversion drift. Wind remains mph and precipitation remains inches.",
+      "checklist": [
+        "Switch F/C with same match count",
+        "Edit Celsius temperature",
+        "Reload Celsius preference",
+        "Verify units beside every value"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 2 \u2014 Core experience",
+      "id": "W2-03",
+      "title": "[W2-03] Interactive 48-hour timeline",
+      "description": "Render one cell per hour with match/outside/unavailable states and accessible measurement labels. A matching cell opens its row; other cells open condition details. Mobile timeline scrolls horizontally.",
+      "checklist": [
+        "Verify all 48 cells",
+        "Check missing measurement styling",
+        "Select matching and nonmatching cells",
+        "Use keyboard to reach each cell"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 2 \u2014 Core experience",
+      "id": "W2-04",
+      "title": "[W2-04] Matching-hour rows and mobile cards",
+      "description": "Show local date/time, temperature, wind, rain chance, match count, and why-it-matches chips. Desktop list scrolls vertically; mobile cards swipe horizontally.",
+      "checklist": [
+        "Check chronological results",
+        "Read measurements and explanations",
+        "Check zero-match behavior",
+        "Compare desktop/mobile layout"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 2 \u2014 Core experience",
+      "id": "W2-05",
+      "title": "[W2-05] Expanded hour conditions and explanations",
+      "description": "Expand the selected hour inline. Show feels-like temperature, humidity, WMO condition text, wind direction/gusts, precipitation, and cloud cover where available. Explain core rule comparisons; missing supporting values do not change matches.",
+      "checklist": [
+        "Open and close a result",
+        "Verify actual API values",
+        "Check comparison explanations",
+        "Check unavailable supporting values"
+      ],
+      "status": "Implemented in supplied code; verify live"
+    },
+    {
+      "list": "Week 3 \u2014 Quality and usability",
+      "id": "W3-01",
+      "title": "[W3-01] Forecast loading, Retry, and refresh",
+      "description": "Keep city and limits through forecast failure. Show loading feedback. Retry and Refresh retrieve the same selected city again.",
+      "checklist": [
+        "Check loading on slow connection",
+        "Simulate offline failure",
+        "Retry after reconnecting",
+        "Refresh and check retrieval time"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 3 \u2014 Quality and usability",
+      "id": "W3-02",
+      "title": "[W3-02] No matches and invalid limits recovery",
+      "description": "Show active thresholds and guidance to widen limits. Do not invent matches or treat missing data as favorable.",
+      "checklist": [
+        "Set rain limit to zero",
+        "Verify active thresholds displayed",
+        "Widen limits and recover",
+        "Check invalid-range message"
+      ],
+      "status": "Implemented in supplied code; verify locally"
+    },
+    {
+      "list": "Week 3 \u2014 Quality and usability",
+      "id": "W3-03",
+      "title": "[W3-03] Mobile Adjust limits bottom sheet",
+      "description": "Use a native dialog for focus handling and Escape. Changes update matches. Closing returns focus to Adjust limits. Verify sheet scrolling and unique control labels.",
+      "checklist": [
+        "Open at 390px width",
+        "Edit limits and close sheet",
+        "Check Escape and focus return",
+        "Verify no horizontal page overflow"
+      ],
+      "status": "Implemented in supplied code; verify on your device"
+    },
+    {
+      "list": "Week 3 \u2014 Quality and usability",
+      "id": "W3-04",
+      "title": "[W3-04] Keyboard, contrast, and screen reader review",
+      "description": "Review labels, live status feedback, tab order, focus rings, dialog behavior, and noncolor timeline labels. Automated checks do not replace manual accessibility testing.",
+      "checklist": [
+        "Complete flow by keyboard",
+        "Check screen reader labels",
+        "Check contrast and touch targets",
+        "Record issues and fixes"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 3 \u2014 Quality and usability",
+      "id": "W3-05",
+      "title": "[W3-05] Timezone and data quality checks",
+      "description": "Test a city outside your local timezone and daylight-saving transitions. Dates and hour labels use the returned city timezone. Weather values can be incomplete or estimated.",
+      "checklist": [
+        "Compare two timezones",
+        "Verify midnight date rollover",
+        "Check repeated daylight-saving hour labels",
+        "Verify missing core measurements never match"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-01",
+      "title": "[W4-01] Regression and cross-browser verification",
+      "description": "Run all automated checks, then verify on intended desktop/mobile browsers. Preserve separate lab and product storage.",
+      "checklist": [
+        "Run unit suite",
+        "Run browser suite",
+        "Check both product and lab pages",
+        "Record browsers and actual results"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-02",
+      "title": "[W4-02] User feedback and scope review",
+      "description": "Ask users to choose a city, find an acceptable hour, adjust limits, and explain the result. Record actual observations; do not fabricate user findings.",
+      "checklist": [
+        "Prepare three meaningful tasks",
+        "Record actual feedback",
+        "Prioritize issues",
+        "Resolve high-impact issues"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-03",
+      "title": "[W4-03] Publish and verify both pages",
+      "description": "Use supplied GitHub Pages workflow if hosting is wanted. Verify main app, /demo.html, direct refresh, asset paths, live requests, and storage on deployed origin.",
+      "checklist": [
+        "Configure Pages GitHub Actions",
+        "Verify successful workflow",
+        "Open both deployed URLs",
+        "Record deployment link"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-04",
+      "title": "[W4-04] Complete artifact index and instructor access",
+      "description": "Attach or link every prior artifact and research source. Invite creatorrob to the Trello Workspace and ensure Board access; GitHub collaboration invitation is separate.",
+      "checklist": [
+        "Attach Assignment 4/5/6 artifacts",
+        "Verify links are accessible to instructor",
+        "Invite creatorrob to Workspace and Board",
+        "Confirm CreatorRob repository invitation"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-05",
+      "title": "[W4-05] Record the 3\u20135 minute showcase",
+      "description": "Student records the application, explains main modules, demonstrates meaningful API and storage work, and compares progress against the original demo. No video is supplied in this package.",
+      "checklist": [
+        "Demonstrate live main app",
+        "Open /demo.html briefly",
+        "Explain shared services and new UI",
+        "Record voice and upload unlisted video or MP4"
+      ],
+      "status": "Planned"
+    },
+    {
+      "list": "Week 4 \u2014 Release and submission",
+      "id": "W4-06",
+      "title": "[W4-06] Submit links and final verification",
+      "description": "Post GitHub repository, Trello Workspace/Board, and video links in assignment Feedback; upload MP4 instead if chosen. No account creation, invites, or submissions have been performed by the supplied code.",
+      "checklist": [
+        "Copy actual GitHub URL",
+        "Copy Trello Workspace and Board URLs",
+        "Add unlisted video URL or MP4",
+        "Review all instructor access and submit"
+      ],
+      "status": "Planned"
+    }
+  ]
+}

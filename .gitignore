@@ -1,0 +1,10 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.weatherwindow-backup-*/
+.env
+.env.*
+!.env.example
+*.log
+upgrade-weatherwindow.mjs

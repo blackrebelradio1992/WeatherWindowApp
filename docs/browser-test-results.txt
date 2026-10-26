@@ -1,0 +1,33 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> weatherwindow@2.0.0 test:e2e
+> playwright test
+
+[WebServer] (node:341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+[WebServer] (node:354) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 2 workers
+
+(node:376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 tests/e2e/lab.spec.ts:29:1 › separate experiments connect through API results and saved preferences (710ms)
+  ✓   3 tests/e2e/lab.spec.ts:69:1 › manual forecast and invalid limits (236ms)
+  ✓   1 tests/e2e/weather.spec.ts:42:1 › main product follows the wireframe flow and expands real hour details (1.3s)
+  ✓   5 tests/e2e/weather.spec.ts:58:1 › limits update immediately, preserve units, and survive reload (1.4s)
+  ✓   6 tests/e2e/weather.spec.ts:79:1 › city search supports no-results and recently selected cities (2.0s)
+  ✓   7 tests/e2e/weather.spec.ts:98:1 › forecast failure retains city and limits and Retry recovers (1.1s)
+  ✓   4 tests/e2e/lab.spec.ts:79:1 › controlled cancellation, failure, and retry (5.0s)
+  ✓   9 tests/e2e/lab.spec.ts:103:1 › live-request errors remain visible and recoverable (233ms)
+  ✓  10 tests/e2e/lab.spec.ts:119:1 › corrupt saved data gives feedback (194ms)
+  ✓   8 tests/e2e/weather.spec.ts:120:1 › mobile bottom sheet opens, edits, closes and returns focus (1.3s)
+  ✓  11 tests/e2e/lab.spec.ts:128:1 › newer city request wins over an older request (1.1s)
+  ✓  12 tests/e2e/weather.spec.ts:146:1 › bad thresholds are explained without saving broken preferences (1.2s)
+  ✓  13 tests/e2e/weather.spec.ts:160:1 › missing and outside-limit timeline hours expose their measurements (1.2s)
+  ✓  14 tests/e2e/weather.spec.ts:168:1 › loading state gives feedback and responds after service completion (1.8s)
+
+  14 passed (12.4s)
